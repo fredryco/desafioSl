@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import com.desafioSolutis.model.PalavraEntity;
 
-@Repository("palavraRepository")
+@Repository("palavraRepositorio")
 public interface PalavraRepositorio extends JpaRepository<PalavraEntity, Integer> {
 
 }

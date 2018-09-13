@@ -19,12 +19,12 @@ public class PalavraController {
 	
 	
 	@RequestMapping(value = "/verificaVogal", method = RequestMethod.GET)
-    public List<PalavraEntity> getEmployees() {
+    public List<PalavraEntity> obterPalavrasAnteriores() {
 		return palavraService.obterPalavrasAnteriores();
 	}
 
     @RequestMapping(value = "/verificaVogal/{palavra}", method = RequestMethod.GET)
-    public String getEmployee(@PathVariable("palavra") String palavra) {
+    public String obterVogalValida(@PathVariable("palavra") String palavra) {
 		return palavraService.obterVogalValida(palavra);
 }
 
