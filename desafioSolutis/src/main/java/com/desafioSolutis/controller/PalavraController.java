@@ -15,7 +15,7 @@ import com.desafioSolutis.service.PalavraService;
 public class PalavraController {
 	
 	@Autowired
-	PalavraService palavraService;
+	private PalavraService palavraService;
 	
 	
 	@RequestMapping(value = "/verificaVogal", method = RequestMethod.GET)

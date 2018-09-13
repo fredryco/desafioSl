@@ -5,23 +5,23 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
 import com.desafioSolutis.model.PalavraEntity;
 import com.desafioSolutis.repositorio.PalavraRepositorio;
 
-@Service("palavraService")
+@Component
 public class PalavraServiceImplementacao implements PalavraService{
 
 	@Autowired
 	PalavraRepositorio palavraRepositorio;	
+	
 
 	@Override
 	public List<PalavraEntity> obterPalavrasAnteriores() {
 		return palavraRepositorio.findAll();
 	}
-
 
 	@Override
 	public String obterVogalValida(String palavra) {
@@ -51,14 +51,15 @@ public class PalavraServiceImplementacao implements PalavraService{
 				}	
 			}
 		}		
-		palavraRepositorio.save(new PalavraEntity(palavra, listaVogaisNRepetidas.get(listaVogaisNRepetidas.size())));
+		palavraRepositorio.save(new PalavraEntity(palavra, listaVogaisNRepetidas.get(listaVogaisNRepetidas.size()-1)));
 		
 		
-		return new StringBuffer().append("string: ").append(palavra).append("\n").append("vogal:")
-				.append(listaVogaisNRepetidas.get(listaVogaisNRepetidas.size())).append("\n")
+		return new StringBuffer().append("string: ").append(palavra).append(" \n").append(" vogal:")
+				.append(listaVogaisNRepetidas.get(listaVogaisNRepetidas.size()-1)).append(" \n ")
 				.append("tempoTotal: ")
-				.append(System.currentTimeMillis() - inicio).toString()
+				.append(System.currentTimeMillis() - inicio).append("ms").toString()
 				;
 	}
+	
 
 }
